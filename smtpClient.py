@@ -14,7 +14,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in end
 
     recv = clientsocket.recv(1024).decode()
-    print(recv)
+    #print(recv)
     # You can use these print statement to validate return codes from the server.
     if recv[:3] != '220':
         print('220 reply not received from server.')
@@ -23,7 +23,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     heloCommand = 'HELO Alice\r\n'
     clientsocket.send(heloCommand.encode())
     recv1 = clientsocket.recv(1024).decode()
-    print(recv1)
+    #print(recv1)
     if recv1[:3] != '250':
         print('250 reply not received from server.')
 
@@ -32,7 +32,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     mailfromcommand = "MAIL FROM: <wap8394@nyu.edu>\r\n"
     clientsocket.send(mailfromcommand.encode())
     recv1 = clientsocket.recv(1024).decode
-    print(recv1)
+    #print(recv1)
     #if recv1[:3] != '250':
     #    print('MAIL FROM not received from server.')
     # Fill in end
@@ -42,7 +42,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     rcpttocommand = "RCPT TO: <wap8394@nyu.edu>\r\n"
     clientsocket.send(rcpttocommand.encode())
     recv1 = clientsocket.recv(1024).decode
-    print(recv1)
+    #print(recv1)
     #if recv1[:3] != '250':
     #    print('RCPT TO not received from server.')
     # Fill in end
@@ -52,7 +52,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     datacommand = "DATA\r\n"
     clientsocket.send(datacommand.encode())
     recv1 = clientsocket.recv(1024).decode
-    print(recv1)
+    #print(recv1)
     #if recv1[:3] != '250':
     #    print('Data not received from server')
     # Fill in end
@@ -62,7 +62,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     messagecommand = str(msg + endmsg)
     clientsocket.send(messagecommand.encode())
     recv1 = clientsocket.recv(1024).decode
-    print(recv1)
+    #print(recv1)
     #if recv1[:3] != '250':
     #    print('message not received from server')
     # Fill in end
@@ -77,7 +77,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     quitcommand = "QUIT\r\n"
     clientsocket.send(quitcommand.encode())
     recv1 = clientsocket.recv(1024).decode
-    print(recv1)
+    #print(recv1)
     #if recv1[:3] != '250':
     #    print('Quit not received from server')
     # Fill in end
