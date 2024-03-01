@@ -31,9 +31,9 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     mailfromcommand = "MAIL FROM: <wap8394@nyu.edu>\r\n"
     clientsocket.send(mailfromcommand.encode())
-    recv1 = str(clientsocket.recv(1024).decode)
-    #print(recv1)
-    if recv1[:3] != '250':
+    recv1 = clientsocket.recv(1024).decode
+    stringrecv1 = str(recv1)
+    if stringrecv1[:3] != '250':
         print('MAIL FROM not received from server.')
     # Fill in end
 
@@ -41,9 +41,9 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     rcpttocommand = "RCPT TO: <wap8394@nyu.edu>\r\n"
     clientsocket.send(rcpttocommand.encode())
-    recv1 = str(clientsocket.recv(1024).decode)
-    #print(recv1)
-    if recv1[:3] != '250':
+    recv1 = clientsocket.recv(1024).decode
+    stringrecv1 = str(recv1)
+    if stringrecv1[:3] != '250':
         print('RCPT TO not received from server.')
     # Fill in end
 
@@ -51,8 +51,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     datacommand = "DATA\r\n"
     clientsocket.send(datacommand.encode())
-    recv1 = str(clientsocket.recv(1024).decode)
-    #print(recv1)
+    recv1 = clientsocket.recv(1024).decode
+    stringrecv1 = str(recv1)
     if recv1[:3] != '250':
         print('Data not received from server')
     # Fill in end
@@ -61,9 +61,9 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     messagecommand = str(msg + endmsg)
     clientsocket.send(messagecommand.encode())
-    recv1 = str(clientsocket.recv(1024).decode)
-    #print(recv1)
-    if recv1[:3] != '250':
+    recv1 = clientsocket.recv(1024).decode
+    stringrecv1 = str(recv1)
+    if stringrecv1[:3] != '250':
         print('message not received from server')
     # Fill in end
 
@@ -77,8 +77,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     quitcommand = "QUIT\r\n"
     clientsocket.send(quitcommand.encode())
     recv1 = str(clientsocket.recv(1024).decode)
-    #print(recv1)
-    if recv1[:3] != '250':
+    stringrecv1 = str(recv1)
+    if stringrecv1[:3] != '250':
         print('Quit not received from server')
     # Fill in end
 
